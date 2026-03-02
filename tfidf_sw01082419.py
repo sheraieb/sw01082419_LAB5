@@ -1,3 +1,15 @@
+#-------------------------------------what i have learned from this lab's resulted files----------------------#
+
+# first from the tf_scores.csv i learned how frequently each word appears inside of the documents individually, this helped in determining what words dominated every document
+
+# second from the idf_scores.csv i learned how rare a word is across all documents. the score is HIGHER for words that appear in fewer documents
+
+# thirdly from the tfidf_scores.csv i learned how the TF and IDF combine. Its score highlights words that are frequent in ONE document yet RARE across the combined dataset
+
+# lastly i realised that tf_scores and idf scores would be the same in the case of a very small dataset and it is hard for them to reach the same number
+
+
+
 import pandas as pd
 import math # use for log function
 from collections import Counter
@@ -45,4 +57,5 @@ idf_df.to_csv("idf_scores.csv", index=False)
 tfidf_data = [compute_tfidf(doc, idf) for doc in documents]
 tfidf_df = pd.DataFrame(tfidf_data).fillna(0)
 tfidf_df.to_csv("tfidf_scores.csv", index=False)
+
 
